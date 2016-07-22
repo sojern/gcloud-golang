@@ -1,13 +1,13 @@
-#!/bin/bash -e
+#!/usr/local/bin/bash -e
 #
 # This script rebuilds the generated code for the protocol buffers.
 # To run this you will need protoc and goprotobuf installed;
 # see https://github.com/golang/protobuf for instructions.
 # You also need Go and Git installed.
 
-PKG=google.golang.org/cloud/bigtable
+PKG=github.com/sojern/gcloud-golang/bigtable
 UPSTREAM=https://github.com/GoogleCloudPlatform/cloud-bigtable-client
-UPSTREAM_SUBDIR=bigtable-protos/src/main/proto
+UPSTREAM_SUBDIR=bigtable-client-core-parent/bigtable-protos/src/main/proto
 PB_UPSTREAM=https://github.com/google/protobuf
 PB_UPSTREAM_SUBDIR=src
 
@@ -83,6 +83,7 @@ known_types[google/protobuf/any.proto]=github.com/golang/protobuf/ptypes/any
 known_types[google/protobuf/duration.proto]=github.com/golang/protobuf/ptypes/duration
 known_types[google/protobuf/timestamp.proto]=github.com/golang/protobuf/ptypes/timestamp
 known_types[google/protobuf/empty.proto]=github.com/golang/protobuf/ptypes/empty
+known_types[google/protobuf/wrappers.proto]=github.com/golang/protobuf/ptypes/wrappers
 types_map=""
 for f in "${!known_types[@]}"; do
   pkg=${known_types[$f]}
@@ -90,8 +91,8 @@ for f in "${!known_types[@]}"; do
 done
 
 # Run protoc once per package.
-for dir in $(find $PKG/internal -name '*.proto' | xargs dirname | sort | uniq); do
+for dir in $(find $PKG/internal -name '*.proto' | xargs -n1 dirname | sort | uniq); do
   echo 1>&2 "* $dir"
-  protoc -I "$tmpproto/$PB_UPSTREAM_SUBDIR" -I . --go_out=plugins=grpc$types_map:. $dir/*.proto
+  protoc -I "$tmpproto/$PB_UPSTREAM_SUBDIR" -I . --gogofast_out=plugins=grpc$types_map:. $dir/*.proto
 done
 echo 1>&2 "All OK"

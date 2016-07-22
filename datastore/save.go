@@ -21,8 +21,8 @@ import (
 	"time"
 
 	timepb "github.com/golang/protobuf/ptypes/timestamp"
-	pb "google.golang.org/cloud/datastore/internal/proto"
-	tpb "google.golang.org/cloud/datastore/internal/type_proto"
+	pb "github.com/sojern/gcloud-golang/datastore/internal/proto"
+	tpb "github.com/sojern/gcloud-golang/datastore/internal/type_proto"
 )
 
 // saveEntity saves an EntityProto into a PropertyLoadSaver or struct pointer.

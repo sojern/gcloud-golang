@@ -31,7 +31,7 @@ import (
 	"google.golang.org/appengine"
 	aelog "google.golang.org/appengine/log"
 	"google.golang.org/appengine/user"
-	"google.golang.org/cloud/bigtable"
+	"github.com/sojern/gcloud-golang/bigtable"
 )
 
 // User-provided constants.

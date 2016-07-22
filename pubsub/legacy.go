@@ -25,7 +25,7 @@ import (
 	"golang.org/x/net/context"
 	"google.golang.org/api/googleapi"
 	raw "google.golang.org/api/pubsub/v1"
-	"google.golang.org/cloud/internal"
+	"github.com/sojern/gcloud-golang/internal"
 )
 
 // batchLimit is maximun size of a single batch.

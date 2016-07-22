@@ -24,9 +24,9 @@ import (
 	"testing"
 	"time"
 
-	"github.com/golang/protobuf/proto"
+	"github.com/gogo/protobuf/proto"
 	"golang.org/x/net/context"
-	pb "google.golang.org/cloud/datastore/internal/proto"
+	pb "github.com/sojern/gcloud-golang/datastore/internal/proto"
 )
 
 type (

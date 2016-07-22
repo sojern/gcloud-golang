@@ -21,7 +21,7 @@ import (
 	"golang.org/x/net/context"
 	"google.golang.org/api/option"
 	"google.golang.org/api/transport"
-	"google.golang.org/cloud"
+	"github.com/sojern/gcloud-golang"
 	"google.golang.org/grpc"
 )
 

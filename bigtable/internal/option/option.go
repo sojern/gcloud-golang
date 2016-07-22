@@ -19,7 +19,7 @@ package option
 
 import (
 	"fmt"
-	"google.golang.org/cloud"
+	"github.com/sojern/gcloud-golang"
 	"google.golang.org/grpc"
 	"os"
 )

@@ -25,8 +25,8 @@ import (
 	"time"
 
 	"golang.org/x/net/context"
-	"google.golang.org/cloud"
-	"google.golang.org/cloud/internal/testutil"
+	"github.com/sojern/gcloud-golang"
+	"github.com/sojern/gcloud-golang/internal/testutil"
 )
 
 // TODO(djd): Make test entity clean up more robust: some test entities may

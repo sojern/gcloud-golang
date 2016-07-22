@@ -21,11 +21,11 @@ import (
 	"os"
 	"reflect"
 
-	"github.com/golang/protobuf/proto"
+	"github.com/gogo/protobuf/proto"
 	"golang.org/x/net/context"
-	"google.golang.org/cloud"
-	pb "google.golang.org/cloud/datastore/internal/proto"
-	"google.golang.org/cloud/internal/transport"
+	"github.com/sojern/gcloud-golang"
+	pb "github.com/sojern/gcloud-golang/datastore/internal/proto"
+	"github.com/sojern/gcloud-golang/internal/transport"
 	"google.golang.org/grpc"
 )
 

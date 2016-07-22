@@ -24,8 +24,8 @@ import (
 
 	"golang.org/x/net/context"
 
-	"google.golang.org/cloud"
-	"google.golang.org/cloud/internal/testutil"
+	"github.com/sojern/gcloud-golang"
+	"github.com/sojern/gcloud-golang/internal/testutil"
 )
 
 const timeout = time.Minute * 10

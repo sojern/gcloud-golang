@@ -16,7 +16,7 @@ syntax = "proto3";
 
 package google.rpc;
 
-import "google/protobuf/any.proto";
+import "github.com/sojern/gcloud-golang/protobuf/any/any.proto";
 
 option java_multiple_files = true;
 option java_outer_classname = "StatusProto";
@@ -86,5 +86,5 @@ message Status {
 
   // A list of messages that carry the error details.  There will be a
   // common set of message types for APIs to use.
-  repeated google.protobuf.Any details = 3;
+  repeated sojern.protobuf.Any details = 3;
 }

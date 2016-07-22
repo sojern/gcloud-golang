@@ -25,7 +25,7 @@
 // NewClient function.  Generally you will want to do this on program
 // initialization.
 //
-//   import "google.golang.org/cloud/trace"
+//   import "github.com/sojern/gcloud-golang/trace"
 //   ...
 //   traceClient, err = trace.NewClient(ctx, projectID)
 //
@@ -129,8 +129,8 @@ import (
 
 	"golang.org/x/net/context"
 	api "google.golang.org/api/cloudtrace/v1"
-	"google.golang.org/cloud"
-	"google.golang.org/cloud/internal/transport"
+	"github.com/sojern/gcloud-golang"
+	"github.com/sojern/gcloud-golang/internal/transport"
 )
 
 const (
@@ -523,7 +523,7 @@ func (s *Span) setStackLabel() {
 		// stack frame.  For the second form, we set the Method field to "Foo" and
 		// the Class field to "path/to/package.(Type)".
 		name := fn.Name()
-		if inTraceLibrary && !strings.HasPrefix(name, "google.golang.org/cloud/trace.") {
+		if inTraceLibrary && !strings.HasPrefix(name, "github.com/sojern/gcloud-golang/trace.") {
 			inTraceLibrary = false
 		}
 		var class string

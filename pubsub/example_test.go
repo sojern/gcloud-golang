@@ -21,8 +21,8 @@ import (
 	"golang.org/x/net/context"
 	"golang.org/x/oauth2"
 	"golang.org/x/oauth2/google"
-	"google.golang.org/cloud"
-	"google.golang.org/cloud/pubsub"
+	"github.com/sojern/gcloud-golang"
+	"github.com/sojern/gcloud-golang/pubsub"
 )
 
 func Example_auth() context.Context {

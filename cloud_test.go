@@ -18,7 +18,7 @@ import (
 	"net/http"
 	"testing"
 
-	"google.golang.org/cloud/internal"
+	"github.com/sojern/gcloud-golang/internal"
 )
 
 func TestClientTransportMutate(t *testing.T) {

@@ -28,7 +28,7 @@ import (
 
 	"golang.org/x/net/context"
 
-	"google.golang.org/cloud/pubsub"
+	"github.com/sojern/gcloud-golang/pubsub"
 )
 
 var (

@@ -25,7 +25,7 @@ import (
 
 	wrapperspb "github.com/golang/protobuf/ptypes/wrappers"
 	"golang.org/x/net/context"
-	pb "google.golang.org/cloud/datastore/internal/proto"
+	pb "github.com/sojern/gcloud-golang/datastore/internal/proto"
 )
 
 type operator int

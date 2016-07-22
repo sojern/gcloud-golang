@@ -22,12 +22,12 @@ import (
 	"strings"
 
 	"golang.org/x/net/context"
-	"google.golang.org/cloud"
-	btispb "google.golang.org/cloud/bigtable/internal/instance_service_proto"
-	"google.golang.org/cloud/bigtable/internal/option"
-	bttdpb "google.golang.org/cloud/bigtable/internal/table_data_proto"
-	bttspb "google.golang.org/cloud/bigtable/internal/table_service_proto"
-	"google.golang.org/cloud/internal/transport"
+	"github.com/sojern/gcloud-golang"
+	btispb "github.com/sojern/gcloud-golang/bigtable/internal/instance_service_proto"
+	"github.com/sojern/gcloud-golang/bigtable/internal/option"
+	bttdpb "github.com/sojern/gcloud-golang/bigtable/internal/table_data_proto"
+	bttspb "github.com/sojern/gcloud-golang/bigtable/internal/table_service_proto"
+	"github.com/sojern/gcloud-golang/internal/transport"
 	"google.golang.org/grpc"
 )
 
@@ -73,7 +73,7 @@ func (ac *AdminClient) instancePrefix() string {
 func (ac *AdminClient) Tables(ctx context.Context) ([]string, error) {
 	prefix := ac.instancePrefix()
 	req := &bttspb.ListTablesRequest{
-		Name: prefix,
+		Parent: prefix,
 	}
 	res, err := ac.tClient.ListTables(ctx, req)
 	if err != nil {
@@ -91,7 +91,7 @@ func (ac *AdminClient) Tables(ctx context.Context) ([]string, error) {
 func (ac *AdminClient) CreateTable(ctx context.Context, table string) error {
 	prefix := ac.instancePrefix()
 	req := &bttspb.CreateTableRequest{
-		Name:    prefix,
+		Parent:    prefix,
 		TableId: table,
 	}
 	_, err := ac.tClient.CreateTable(ctx, req)
@@ -230,7 +230,7 @@ var instanceNameRegexp = regexp.MustCompile(`^projects/([^/]+)/instances/([a-z][
 // Instances returns a list of instances in the project.
 func (cac *InstanceAdminClient) Instances(ctx context.Context) ([]*InstanceInfo, error) {
 	req := &btispb.ListInstancesRequest{
-		Name: "projects/" + cac.project,
+		Parent: "projects/" + cac.project,
 	}
 	res, err := cac.iClient.ListInstances(ctx, req)
 	if err != nil {

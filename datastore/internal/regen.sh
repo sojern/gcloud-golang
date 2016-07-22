@@ -5,7 +5,7 @@
 # see https://github.com/golang/protobuf for instructions.
 # You also need Go and Git installed.
 
-PKG=google.golang.org/cloud/datastore
+PKG=github.com/sojern/gcloud-golang/datastore
 UPSTREAM=https://github.com/googleapis/googleapis
 UPSTREAM_SUBDIR=google
 PB_UPSTREAM=https://github.com/google/protobuf
