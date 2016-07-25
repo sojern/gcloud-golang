@@ -21,7 +21,7 @@ import (
 	"google.golang.org/grpc"
 	"google.golang.org/grpc/codes"
 
-	pb "google.golang.org/cloud/datastore/internal/proto"
+	pb "github.com/sojern/gcloud-golang/datastore/internal/proto"
 )
 
 // ErrConcurrentTransaction is returned when a transaction is rolled back due

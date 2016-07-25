@@ -21,8 +21,8 @@ import (
 
 	"golang.org/x/net/context"
 	"golang.org/x/oauth2/google"
-	"google.golang.org/cloud"
-	"google.golang.org/cloud/datastore"
+	"github.com/sojern/gcloud-golang"
+	"github.com/sojern/gcloud-golang/datastore"
 )
 
 // TODO(djd): reevaluate this example given new Client config.

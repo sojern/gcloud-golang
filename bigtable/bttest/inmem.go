@@ -27,7 +27,7 @@ To use a Server, create it, and then connect to it with no security:
 		cloud.WithBaseGRPC(conn))
 	...
 */
-package bttest // import "google.golang.org/cloud/bigtable/bttest"
+package bttest // import "github.com/sojern/gcloud-golang/bigtable/bttest"
 
 import (
 	"encoding/binary"
@@ -41,14 +41,14 @@ import (
 	"sync"
 	"time"
 
-	emptypb "github.com/golang/protobuf/ptypes/empty"
-	"github.com/golang/protobuf/ptypes/wrappers"
+	emptypb "github.com/sojern/gcloud-golang/protobuf/empty"
+	"github.com/sojern/gcloud-golang/protobuf/wrappers"
 	"golang.org/x/net/context"
-	btdpb "google.golang.org/cloud/bigtable/internal/data_proto"
-	rpcpb "google.golang.org/cloud/bigtable/internal/rpc_status_proto"
-	btspb "google.golang.org/cloud/bigtable/internal/service_proto"
-	bttdpb "google.golang.org/cloud/bigtable/internal/table_data_proto"
-	bttspb "google.golang.org/cloud/bigtable/internal/table_service_proto"
+	btdpb "github.com/sojern/gcloud-golang/bigtable/internal/data_proto"
+	rpcpb "github.com/sojern/gcloud-golang/bigtable/internal/rpc_status_proto"
+	btspb "github.com/sojern/gcloud-golang/bigtable/internal/service_proto"
+	bttdpb "github.com/sojern/gcloud-golang/bigtable/internal/table_data_proto"
+	bttspb "github.com/sojern/gcloud-golang/bigtable/internal/table_service_proto"
 	"google.golang.org/grpc"
 	"google.golang.org/grpc/codes"
 )
@@ -114,7 +114,7 @@ func (s *Server) Close() {
 }
 
 func (s *server) CreateTable(ctx context.Context, req *bttspb.CreateTableRequest) (*bttdpb.Table, error) {
-	tbl := req.Name + "/tables/" + req.TableId
+	tbl := req.Parent + "/tables/" + req.TableId
 
 	s.mu.Lock()
 	if _, ok := s.tables[tbl]; ok {
@@ -129,7 +129,7 @@ func (s *server) CreateTable(ctx context.Context, req *bttspb.CreateTableRequest
 
 func (s *server) ListTables(ctx context.Context, req *bttspb.ListTablesRequest) (*bttspb.ListTablesResponse, error) {
 	res := &bttspb.ListTablesResponse{}
-	prefix := req.Name + "/tables/"
+	prefix := req.Parent + "/tables/"
 
 	s.mu.Lock()
 	for tbl := range s.tables {

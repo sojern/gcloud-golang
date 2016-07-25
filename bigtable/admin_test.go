@@ -21,8 +21,8 @@ import (
 	"time"
 
 	"golang.org/x/net/context"
-	"google.golang.org/cloud"
-	"google.golang.org/cloud/bigtable/bttest"
+	"github.com/sojern/gcloud-golang"
+	"github.com/sojern/gcloud-golang/bigtable/bttest"
 	"google.golang.org/grpc"
 )
 

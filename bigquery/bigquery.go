@@ -19,8 +19,8 @@ package bigquery
 import (
 	"fmt"
 
-	"google.golang.org/cloud"
-	"google.golang.org/cloud/internal/transport"
+	"github.com/sojern/gcloud-golang"
+	"github.com/sojern/gcloud-golang/internal/transport"
 
 	"golang.org/x/net/context"
 	bq "google.golang.org/api/bigquery/v2"

@@ -20,7 +20,7 @@ import (
 	"time"
 
 	"golang.org/x/net/context"
-	"google.golang.org/cloud/datastore"
+	"github.com/sojern/gcloud-golang/datastore"
 )
 
 type Task struct {

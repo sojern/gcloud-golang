@@ -16,8 +16,8 @@ syntax = "proto3";
 
 package google.bigtable.admin.v2;
 
-import "google.golang.org/cloud/bigtable/internal/table_data_proto/table.proto";
-import "google/protobuf/empty.proto";
+import "github.com/sojern/gcloud-golang/bigtable/internal/table_data_proto/table.proto";
+import "github.com/sojern/gcloud-golang/protobuf/empty/empty.proto";
 
 option java_multiple_files = true;
 option java_outer_classname = "BigtableTableAdminProto";
@@ -27,55 +27,34 @@ option java_package = "com.google.bigtable.admin.v2";
 // Service for creating, configuring, and deleting Cloud Bigtable tables.
 // Provides access to the table schemas only, not the data stored within
 // the tables.
-//
-// Caution: This service is experimental. The details can change and the rpcs
-// may or may not be active.
 service BigtableTableAdmin {
   // Creates a new table in the specified instance.
   // The table can be created with a full set of initial column families,
   // specified in the request.
-  //
-  // Caution: This rpc is experimental. The details can change and the rpc
-  // may or may not be active.
   rpc CreateTable(CreateTableRequest) returns (Table) {
   }
 
   // Lists all tables served from a specified instance.
-  //
-  // Caution: This rpc is experimental. The details can change and the rpc
-  // may or may not be active.
   rpc ListTables(ListTablesRequest) returns (ListTablesResponse) {
   }
 
   // Gets metadata information about the specified table.
-  //
-  // Caution: This rpc is experimental. The details can change and the rpc
-  // may or may not be active.
   rpc GetTable(GetTableRequest) returns (Table) {
   }
 
   // Permanently deletes a specified table and all of its data.
-  //
-  // Caution: This rpc is experimental. The details can change and the rpc
-  // may or may not be active.
-  rpc DeleteTable(DeleteTableRequest) returns (google.protobuf.Empty) {
+  rpc DeleteTable(DeleteTableRequest) returns (sojern.protobuf.Empty) {
   }
 
   // Atomically performs a series of column family modifications
   // on the specified table.
-  //
-  // Caution: This rpc is experimental. The details can change and the rpc
-  // may or may not be active.
   rpc ModifyColumnFamilies(ModifyColumnFamiliesRequest) returns (Table) {
   }
 
   // Permanently drop/delete a row range from a specified table. The request can
   // specify whether to delete all rows in a table, or only those that match a
   // particular prefix.
-  //
-  // Caution: This rpc is experimental. The details can change and the rpc
-  // may or may not be active.
-  rpc DropRowRange(DropRowRangeRequest) returns (google.protobuf.Empty) {
+  rpc DropRowRange(DropRowRangeRequest) returns (sojern.protobuf.Empty) {
   }
 }
 
@@ -89,7 +68,7 @@ message CreateTableRequest {
 
   // The unique name of the instance in which to create the table.
   // Values are of the form projects/<project>/instances/<instance>
-  string name = 1;
+  string parent = 1;
 
   // The name by which the new table should be referred to within the parent
   // instance, e.g. "foobar" rather than "<parent>/tables/foobar".
@@ -136,13 +115,13 @@ message DropRowRangeRequest {
 message ListTablesRequest {
   // The unique name of the instance for which tables should be listed.
   // Values are of the form projects/<project>/instances/<instance>
-  string name = 1;
+  string parent = 1;
 
   // The view to be applied to the returned tables' fields.
   // Defaults to NAME_ONLY if unspecified (no others are currently supported).
   Table.View view = 2;
 
-  // Not yet supported.
+  // The value of `next_page_token` returned by a previous call.
   string page_token = 3;
 }
 
@@ -151,6 +130,9 @@ message ListTablesResponse {
   // The tables present in the requested cluster.
   repeated Table tables = 1;
 
+  // Set if not all tables could be returned in a single response.
+  // Pass this value to `page_token` in another request to get the next
+  // page of results.
   string next_page_token = 2;
 }
 

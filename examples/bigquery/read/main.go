@@ -26,7 +26,7 @@ import (
 	"text/tabwriter"
 
 	"golang.org/x/net/context"
-	"google.golang.org/cloud/bigquery"
+	"github.com/sojern/gcloud-golang/bigquery"
 )
 
 var (

@@ -19,7 +19,7 @@ package bigtable
 import (
 	"bytes"
 	"fmt"
-	btspb "google.golang.org/cloud/bigtable/internal/service_proto"
+	btspb "github.com/sojern/gcloud-golang/bigtable/internal/service_proto"
 )
 
 // A Row is returned by ReadRows. The map is keyed by column family (the prefix

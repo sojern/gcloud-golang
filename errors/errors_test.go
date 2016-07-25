@@ -23,8 +23,8 @@ import (
 	"testing"
 
 	"golang.org/x/net/context"
-	"google.golang.org/cloud"
-	"google.golang.org/cloud/errors"
+	"github.com/sojern/gcloud-golang"
+	"github.com/sojern/gcloud-golang/errors"
 )
 
 const testProjectID = "testproject"

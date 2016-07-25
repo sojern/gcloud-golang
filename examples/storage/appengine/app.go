@@ -33,7 +33,7 @@ import (
 	"google.golang.org/appengine"
 	"google.golang.org/appengine/file"
 	"google.golang.org/appengine/log"
-	"google.golang.org/cloud/storage"
+	"github.com/sojern/gcloud-golang/storage"
 )
 
 //[END imports]

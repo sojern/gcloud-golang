@@ -25,8 +25,8 @@ import (
 
 	"golang.org/x/net/context"
 	api "google.golang.org/api/cloudtrace/v1"
-	"google.golang.org/cloud"
-	"google.golang.org/cloud/trace"
+	"github.com/sojern/gcloud-golang"
+	"github.com/sojern/gcloud-golang/trace"
 )
 
 const testProjectID = "testproject"

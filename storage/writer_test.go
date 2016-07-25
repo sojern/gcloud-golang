@@ -21,7 +21,7 @@ import (
 
 	"golang.org/x/net/context"
 
-	"google.golang.org/cloud"
+	"github.com/sojern/gcloud-golang"
 )
 
 type fakeTransport struct{}

@@ -24,9 +24,9 @@ import (
 	"strings"
 	"testing"
 
-	"github.com/golang/protobuf/proto"
-	"github.com/golang/protobuf/ptypes/wrappers"
-	btspb "google.golang.org/cloud/bigtable/internal/service_proto"
+	"github.com/gogo/protobuf/proto"
+	"github.com/sojern/gcloud-golang/protobuf/wrappers"
+	btspb "github.com/sojern/gcloud-golang/bigtable/internal/service_proto"
 )
 
 // Indicates that a field in the proto should be omitted, rather than included

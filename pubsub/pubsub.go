@@ -12,7 +12,7 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-package pubsub // import "google.golang.org/cloud/pubsub"
+package pubsub // import "github.com/sojern/gcloud-golang/pubsub"
 
 import (
 	"fmt"
@@ -20,8 +20,8 @@ import (
 	"os"
 
 	raw "google.golang.org/api/pubsub/v1"
-	"google.golang.org/cloud"
-	"google.golang.org/cloud/internal/transport"
+	"github.com/sojern/gcloud-golang"
+	"github.com/sojern/gcloud-golang/internal/transport"
 
 	"golang.org/x/net/context"
 )
